@@ -3,6 +3,7 @@ package com.melita.orderapprovalapi.api;
 
 import com.melita.orderapprovalapi.order.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ public class V1ApprovalApi {
 
 
     @PostMapping(value = "{orderId}")
+    @ResponseStatus(HttpStatus.OK)
     void approve(HttpServletRequest request, @PathVariable Integer orderId) {
         service.approveOrder(orderId);
     }
